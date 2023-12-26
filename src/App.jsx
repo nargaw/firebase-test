@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Auth } from "./components/auth";
 import { dataBase } from "./config/firebase";
 import { useState } from "react";
-import { getDocs, collection, storage } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 
 
 export default function App()
@@ -35,11 +35,11 @@ export default function App()
             <Auth />
             <div>
                 {bookList.map((book) => (
-                    <div>
+                    <div key={book.id}>
                         <h1>Title: {book.title}</h1>
                         <p>Author: {book.author}</p>
                         <p>Publication Year: {book.publicationDate}</p>
-                        <p>Publication Country: {book.country}</p>
+                        <p>Publication Country: {book.publicationCountry}</p>
                         <p>Estimated Sales: {book.estimatedSales}</p>
                     </div>
                 ))}
